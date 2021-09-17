@@ -103,7 +103,7 @@ class Main(ServerSystem):
                         )
                         if block_info_data['name'] == 'design:tileentity_chest':
                             connect_block_data = block_data_comp.GetBlockEntityData(dimension_id, (x, y, z + i))
-                            if connect_block_data['invert'] == 0 and connect_block_data['rotation'] == block_entity_data['rotation']:
+                            if connect_block_data['invert'] != 0 and connect_block_data['rotation'] == block_entity_data['rotation']:
                                 connect_block_data['invert'] = 0
                                 data['{0},{1},{2}'.format(x, y, z + i)] = {'rotation': connect_block_data['rotation'], 'invert': connect_block_data['invert']}
                                 post_data['{0},{1},{2}'.format(x, y, z + i)] = {'rotation': connect_block_data['rotation'], 'invert': connect_block_data['invert']}
