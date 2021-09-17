@@ -1,0 +1,42 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "design:tileentity_chest",
+			"render_controllers": [
+				"controller.render.chest_pair"
+			],
+			"geometry": {
+				"default": "geometry.tileentity_chest",
+				"pair": "geometry.tileentity_chest_pair"
+			},
+			"textures": {
+				"default": "textures/entity/tileentity_chest"
+			},
+			"animations": {
+				"open": "animation.tileentity_chest.open",
+				"close": "animation.tileentity_chest.close",
+				"fix_scale": "animation.tileentity_chest.fix_scale",
+				"rotation": "animation.tileentity_chest.rotation",
+				"pair_invert": "animation.tileentity_chest.invert",
+				"controller.general": "controller.animation.tileentity_chest.general"
+			},
+			"scripts": {
+				"initialize": [
+					"variable.mod_states = 0.0;",
+					"variable.mod_invert = 0.0;",
+					"variable.mod_rotation = 0.0;"
+				],
+				"animate": [
+					"fix_scale",
+					"pair_invert",
+					"rotation",
+					"controller.general"
+				]
+			},
+			"materials": {
+				"default": "entity_alphatest"
+			}
+		}
+	}
+}

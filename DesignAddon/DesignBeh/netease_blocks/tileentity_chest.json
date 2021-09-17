@@ -1,0 +1,49 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:block": {
+        "description": {
+            "identifier": "design:tileentity_chest",
+            "register_to_creative_menu": true
+        },
+        "components": {
+            "netease:listen_block_remove": {
+                "value": true
+            },
+            "netease:solid": {
+                "value": false
+            },
+            "netease:block_entity": {
+	            "tick": false,
+                "movable": false
+	        },
+            "netease:aabb": {
+                "collision": {
+                    "min": [
+                        0.0625,
+                        0,
+                        0.0625
+                    ],
+                    "max": [
+                        0.9375,
+                        0.875,
+                        0.9375
+                    ]
+                },
+                "clip": {
+                    "min": [
+                        0.0625,
+                        0,
+                        0.0625
+                    ],
+                    "max": [
+                        0.9375,
+                        0.875,
+                        0.9375
+                    ]
+                }
+            },
+            "minecraft:block_light_absorption": 0,
+            "minecraft:destroy_time": 0.1
+        }
+    }
+}

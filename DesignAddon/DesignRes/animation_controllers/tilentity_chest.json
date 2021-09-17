@@ -1,0 +1,37 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.tileentity_chest.general": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"open": "variable.mod_states"
+						}
+					]
+				},
+				"open": {
+					"animations": [
+						"open"
+					],
+					"transitions": [
+						{
+							"close": "!variable.mod_states"
+						}
+					]
+				},
+				"close": {
+					"animations": [
+						"close"
+					],
+					"transitions": [
+						{
+							"default": "query.any_animation_finished"
+						}
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.chest_pair": {
+			"geometry": "variable.mod_invert == 0.0 ? Geometry.default : Geometry.pair",
+			"materials": [{"*": "Material.default"}],
+			"textures": ["Texture.default"]
+		}
+	}
+}

@@ -1,0 +1,14 @@
+{
+  "format_version": [
+    1,
+    1,
+    0
+  ],
+ "design:tileentity_chest": {
+    "sound": "stone",
+    "client_entity": {
+      "identifier": "design:tileentity_chest",
+      "hand_model_use_client_entity": true
+    }
+  }
+}
