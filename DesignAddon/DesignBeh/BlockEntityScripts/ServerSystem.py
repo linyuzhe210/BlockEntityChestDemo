@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 from mod.server.system.serverSystem import ServerSystem
+from mod.common.minecraftEnum import Facing
 import mod.server.extraServerApi as serverApi
 
 
@@ -10,9 +11,22 @@ class Main(ServerSystem):
         namespace = serverApi.GetEngineNamespace()
         system_name = serverApi.GetEngineSystemName()
         self.ListenForEvent(namespace, system_name, 'EntityPlaceBlockAfterServerEvent', self, self.on_placed)
+        self.ListenForEvent(namespace, system_name, 'ServerEntityTryPlaceBlockEvent', self, self.on_try_placed)
         self.ListenForEvent(namespace, system_name, 'BlockRemoveServerEvent', self, self.block_removed)
         self.ListenForEvent('Design', 'BlockEntityClient', 'TryOpenChest', self, self.try_open_chest)
         self.ListenForEvent('Design', 'BlockEntityClient', 'GetChestInit', self, self.init_chest_rotation)
+
+    def on_try_placed(self, event):
+        x = event['x']
+        y = event['y']
+        z = event['z']
+        block_name = event['fullName']
+        dimension_id = event['dimensionId']
+        face = event['face']
+        if face == Facing.Up and block_name == 'design:tileentity_chest':
+            block_data = serverApi.GetEngineCompFactory().CreateBlockInfo(serverApi.GetLevelId()).GetBlockNew((x, y - 1, z), dimension_id)
+            if block_data['name'] == block_name:
+                event['cancel'] = True
 
     def on_placed(self, event):
         dimension_id = event['dimensionId']
